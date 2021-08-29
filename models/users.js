@@ -26,6 +26,10 @@ const BasicUserSchema = new mongoose.Schema({
     },
     token:{
         type:String,
+    },
+    UserType:{
+        type:String,
+        enum:["Admin","Normal"],
     }
 
 },{

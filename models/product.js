@@ -13,7 +13,6 @@ const ItemSchema = new Schema({
     },
     description: {
         type: String,
-        required: true
     },
     category:{
         type: String,
@@ -23,14 +22,21 @@ const ItemSchema = new Schema({
         type: String,
         required: true
     },
+    quantity:{
+        type:Number,
+        required:true
+    },
     price: {
         type: Number,
         required: true
     },
-    date_added: {
-        type: Date,
-        default: Date.now
+    productStatus:{
+        type:Boolean,
+        required:true
     },
+   
+},{
+    timestamps:true
 });
 
-module.exports = Item = mongoose.model('item',ItemSchema);
+module.exports = Item = mongoose.model('Product',ItemSchema);

@@ -3,7 +3,7 @@ const app=express();
 const passport=require('passport');
 
 const passportJwt=require('passport-jwt');
-const passportJwtUser=require('./config/passport-user');
+// const passportJwtUser=require('./middleware/passport-user');
 const bodyParser=require('body-parser');
 const dotenv=require('dotenv');
 const connectDb = require('./config/connection');

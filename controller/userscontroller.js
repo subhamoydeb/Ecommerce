@@ -14,7 +14,7 @@ module.exports.register = async (req, res) => {
 
     try {
         // Get user input
-        const { firstName, lastName, email, password,phone,userActiveStatus } = req.body;
+        const { firstName, lastName, email, password,phone,userActiveStatus,UserType } = req.body;
     
         // Validate user input
         if (!(email && password && firstName && lastName)) {
@@ -39,7 +39,8 @@ module.exports.register = async (req, res) => {
           email: email.toLowerCase(), // sanitize: convert email to lowercase
           password: encryptedPassword,
           phone,
-          userActiveStatus
+          userActiveStatus,
+          UserType
         });
     
         // Create token
@@ -47,7 +48,7 @@ module.exports.register = async (req, res) => {
           { user_id: user._id, email },
           process.env.SECRET_KEY,
           {
-            expiresIn: "2h",
+            expiresIn: "5h",
           }
         );
         // save user token
@@ -122,7 +123,7 @@ module.exports.login = async (req,res)=>{
             { user_id: user._id, email },
             process.env.SECRET_KEY,
             {
-              expiresIn: "2h",
+              expiresIn: "5h",
             }
           );
     
